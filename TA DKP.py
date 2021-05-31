@@ -7,6 +7,7 @@ from pygame import mixer
 root=Tk()
 root.title("Music Player")
 root.geometry("720x560")
+root.configure(bg="PaleTurquoise4")
 pygame.init()
 pygame.mixer.init()
 pause=False
@@ -88,10 +89,10 @@ class musicbutton:
         
 mb=musicbutton()
 #Label judul, nama lagu dan status
-JudulLabel=Label(text="Judul: ",font=("calibri",14)).place(x=100,y=270)
-JudulMusic=Label(textvariable=(mb.music),font=("calibri",14)).place(x=160,y=270)
-StatusLabel=Label(text="Status: ",font=("calibri",14)).place(x=100,y=300)
-MusicStatus=Label(textvariable=(mb.status),font=("calibri",14)).place(x=160,y=300)
+JudulLabel=Label(text="Judul: ",font=("calibri",14),bg="PaleTurquoise4").place(x=100,y=270)
+JudulMusic=Label(textvariable=(mb.music),font=("calibri",14),bg="PaleTurquoise4").place(x=160,y=270)
+StatusLabel=Label(text="Status: ",font=("calibri",14),bg="PaleTurquoise4").place(x=100,y=300)
+MusicStatus=Label(textvariable=(mb.status),font=("calibri",14),bg="PaleTurquoise4").place(x=160,y=300)
 #Button
 playbtn=Button(root,text="Play",command=mb.play,font=("calibri",14)).place(x=100,y=380)
 pausebtn=Button(text="Pause",command=mb.pause,font=("calibri",14)).place(x=160,y=380)
