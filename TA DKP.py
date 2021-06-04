@@ -16,11 +16,10 @@ class musicbutton:
     def __init__(self):
         self.music = StringVar()
         self.status = StringVar()
-        self.filename=""
     def open(self):
-        self.filename=fd.askopenfilename(title="Select File",initialdir="/",filetypes=[("Mp3 Files","*.mp3")])
-        dirsong.append(self.filename)
-        filesong=self.filename.split('/')[-1].split('.')[0]
+        filename=fd.askopenfilename(title="Select File",initialdir="/",filetypes=[("Mp3 Files","*.mp3")])
+        dirsong.append(filename)
+        filesong=filename.split('/')[-1].split('.')[0]
         listnama.append(filesong)
         for i in listnama:
             if i not in listnama_temp:
