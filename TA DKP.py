@@ -25,6 +25,19 @@ class musicbutton:
             if i not in listnama_temp:
                 listnama_temp.append(filesong)
                 playlist.insert(END,i)
+    def delete(self):
+        if not listnama_temp:
+            messagebox.showerror(title="Error",message="Tidak ada lagu didalam playlist")
+            self.status.set()
+        song_queue=playlist.curselection()
+        song_queue=(song_queue[0])%len(dirsong)
+        pygame.mixer.music.stop()
+        del dirsong[song_queue]
+        del listnama[song_queue]
+        del listnama_temp[song_queue]
+        playlist.delete(ANCHOR)
+        self.music.set("")
+        self.status.set("")
     def play(self):
         if not listnama_temp:
             messagebox.showerror(title="Error",message="Tidak ada lagu didalam playlist")
@@ -102,6 +115,7 @@ root.config(menu=top_menu)
 add_menu=Menu(top_menu)
 top_menu.add_cascade(label="Add",menu=add_menu)
 add_menu.add_command(label="Add song",command=mb.open)
+add_menu.add_command(label="Delete song",command=mb.delete)
 #Playlist
 scroll=Scrollbar(orient=VERTICAL)
 scroll.pack(side=RIGHT,fill=Y)
